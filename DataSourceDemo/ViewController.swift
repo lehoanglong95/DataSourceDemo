@@ -13,7 +13,7 @@ class ViewController: UIViewController,UITableViewDelegate {
     var dataSource = DataSource()
     var addressBook: [String] = {
         var result: [String] = []
-        for i in 0 ... 100 {
+        for i in 0 ..< 101 {
             result += ["Nguyen Van \(i)"]
         }
         return result
