@@ -41,5 +41,18 @@ class DataSource: NSObject, UITableViewDataSource {
         
         return addressBookCell
     }
+    
+    // MARK:Edit Table View
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            room[indexPath.section].students.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+        }
+    }
 
 }
